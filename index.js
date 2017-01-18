@@ -42,6 +42,9 @@ function checkSync(file, expected, options) {
         'shasum check failed for ' + file + '\n'
       + 'Expected: ' + expected + '\n'
       + 'Actual:   ' + actual)
+    ex.file = file
+    ex.expected = expected
+    ex.actual = actual
     throw ex
   }
 }
