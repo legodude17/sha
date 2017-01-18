@@ -123,6 +123,9 @@ describe('check', function () {
           function (err) {
             assert(err)
             assert(err instanceof Error)
+            assert.equal(err.file, __dirname + '/data')
+            assert.equal(err.expected, '19a2013a3e497eaa0da5e6fae9d613ef')
+            assert.equal(err.actual, '068e929d0e5eb008bf404b15b10282f498a31f8b')
             return done()
           })
       })
@@ -153,6 +156,9 @@ describe('check', function () {
           function (err) {
             assert(err)
             assert(err instanceof Error)
+            assert.equal(err.file, __dirname + '/data')
+            assert.equal(err.expected, '19a2013a3e497eaa0da5e6fae9d613ef')
+            assert.equal(err.actual, '068e929d0e5eb008bf404b15b10282f498a31f8b')
             return done()
           })
       })
@@ -185,6 +191,9 @@ describe('checkSync', function () {
         } catch (err) {
           assert(err)
           assert(err instanceof Error)
+          assert.equal(err.file, __dirname + '/data')
+          assert.equal(err.expected, '19a2013a3e497eaa0da5e6fae9d613ef')
+          assert.equal(err.actual, '068e929d0e5eb008bf404b15b10282f498a31f8b')
           return
         }
         assert(false, 'Should throw an error')
@@ -244,6 +253,9 @@ describe('stream', function () {
         var erred = false
         checkStream.on('error', function (err) {
           assert.ok(err)
+          assert.equal(err.file, __dirname + '/data')
+          assert.equal(err.expected, '19a2013a3e497eaa0da5e6fae9d613ef')
+          assert.equal(err.actual, '068e929d0e5eb008bf404b15b10282f498a31f8b')
           erred = true
         })
         writeStream.on('close', function () {
@@ -272,6 +284,9 @@ describe('stream', function () {
         var erred = false
         checkStream.on('error', function (err) {
           assert.ok(err)
+          assert.equal(err.file, __dirname + '/data')
+          assert.equal(err.expected, '19a2013a3e497eaa0da5e6fae9d613ef')
+          assert.equal(err.actual, '068e929d0e5eb008bf404b15b10282f498a31f8b')
           erred = true
         })
         writeStream.on('close', function () {
